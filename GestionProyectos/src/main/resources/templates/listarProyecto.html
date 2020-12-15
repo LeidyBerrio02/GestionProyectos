@@ -19,6 +19,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		</label> <label class="logo">GESTIÓN PROYECTOS</label>
 		<ul>
 			<li><a class="active" href="/">Inicio</a></li>
+			<li><a class="active" href="/historialE">Historial Actualizados</a></li>
 			<li><a class="active" href="/historialE">Historial Eliminados</a></li>
 			<li>¡Bienvenido [[${#httpServletRequest.remoteUser}]]!</li>
 			<li><form method="POST" th:action="@{/logout}">

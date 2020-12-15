@@ -42,6 +42,20 @@ create table proyecto (
   estado varchar(45)
   );
   
+  create table proyectoactualizado (
+  idProyecto int not null primary key auto_increment,
+  nombreProyecto varchar(100),
+  area varchar(45),
+  presupuesto double,
+  responsable varchar(45),
+  duracion varchar(20) ,
+  fechaCreacion date,
+  fechaInicio date,
+  fechaFin date,
+  usuarioCreador varchar(45)  ,
+  estado varchar(45)
+  );
+  
   select * from usuario;
   
 insert into usuario values (1,"admin","123",1);
@@ -68,8 +82,13 @@ select * from usuario;
 select * from rol;
 select * from proyecto;
 select * from proyectoeliminado;
+select * from proyectoactualizado;
 alter table proyectoeliminado add column fechaModificacion Date;
+alter table proyectoactualizado add column fechaModificacion Date;
 delete from proyecto where idProyecto = 20;
+select * from proyectoactualizado;
+
+update proyecto set nombreProyecto="Proyecto A.B.C" where idProyecto=5;
 
 drop trigger eliminandoproyecto;
 
@@ -79,9 +98,21 @@ BEGIN
 INSERT INTO proyectoeliminado (idProyecto,nombreProyecto,area,presupuesto,responsable,duracion,fechaCreacion,fechaInicio,fechaFin,usuarioCreador,estado)
   SELECT idProyecto,nombreProyecto,area,presupuesto,responsable,duracion,fechaCreacion,fechaInicio,fechaFin,usuarioCreador,estado FROM proyecto WHERE idProyecto = old.idProyecto;
 UPDATE proyectoeliminado set fechaModificacion = now() WHERE idProyecto = old.idProyecto;
+END $$
+DELIMITER $$
+
+DROP trigger actualizandoproyecto;
+
+DELIMITER $$
+CREATE TRIGGER actualizandoproyecto BEFORE UPDATE ON proyecto for each row
+BEGIN
+INSERT INTO proyectoactualizado (idProyecto,nombreProyecto,area,presupuesto,responsable,duracion,fechaCreacion,fechaInicio,fechaFin,usuarioCreador,estado)
+  SELECT idProyecto,nombreProyecto,area,presupuesto,responsable,duracion,fechaCreacion,fechaInicio,fechaFin,usuarioCreador,estado FROM proyecto WHERE idProyecto = old.idProyecto;
+UPDATE proyectoactualizado set fechaModificacion = now() WHERE idProyecto = old.idProyecto;
   
 END $$
 DELIMITER $$
+
 
 /*
 DELIMITER $$

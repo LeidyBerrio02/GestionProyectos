@@ -1,6 +1,6 @@
 package com.semillerojava.demoversion.controller;
 
-import java.util.List;					
+import java.util.List;						
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.*;
-import com.semillerojava.demoversion.model.Proyecto;
-import com.semillerojava.demoversion.model.Proyectoeliminado;
+import com.semillerojava.demoversion.model.*;
 import com.semillerojava.demoversion.service.*;
 
 
@@ -28,6 +27,10 @@ public class ProyectoController {
 
 	@Autowired
 	private ProyectoEliminadoService proyectoEliminadoService;
+	
+	@Autowired
+	private ProyectoActualizadoService proyectoActualizadoService;
+	
 /*
 	@GetMapping("/listar")
 	public List<Proyecto> listarProyecto() {
@@ -81,6 +84,13 @@ public class ProyectoController {
 		List<Proyectoeliminado> proyecto = proyectoEliminadoService.listarEliminado();
 		modelo.addAttribute("proyecto",proyecto);
 		return "listarProyectoEliminado"; 
+	}
+	
+	@GetMapping("/historialA")
+	public String listarProyectoActualizado(Model modelo) {
+		List<Proyectoactualizado> proyecto = proyectoActualizadoService.listarActualizados();
+		modelo.addAttribute("proyecto",proyecto);
+		return "listarProyectoActualizado"; 
 	}
 	
 	@GetMapping("/mostrarFormulario")
