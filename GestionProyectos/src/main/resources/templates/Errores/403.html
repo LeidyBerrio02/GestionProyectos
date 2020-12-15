@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Acceso Denegado</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+</head>
+<body>
+
+
+
+<div class="card">
+  <div class="card-header">
+   <h3>¡ERROR 403! </h3>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><h5>¡¡Acceso Denegado!!
+		<strong>No cuentas con permisos para acceder a esta pagina.</strong></h5>
+      <footer><a th:href="@{/}">Intente Nuevamente</a></footer>
+    </blockquote>
+  </div>
+</div>
+</body>
+</html>
