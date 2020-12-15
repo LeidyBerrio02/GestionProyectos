@@ -68,7 +68,7 @@ public class ProyectoController {
 	@GetMapping("eliminar/{idProyecto}")
 	public String eliminarProyecto(@PathVariable Long idProyecto) {
 		 proyectoService.eliminar(idProyecto);
-		 return "redirect:/proyecto/listar";
+		 return "redirect:/";
 	}
 	
 	
