@@ -1,0 +1,21 @@
+Pasos
+
+1. Descargar Tomcat (servidor que nos ayudara a ejecutar)
+https://tomcat.apache.org/download-90.cgi
+
+2. Ejecutar Tomcat 
+
+3. Descargar archivo proyectoejemplo.war
+
+4. Ingresar a las carpetas de tomcat hasta llegar a webapps y pegar el archivo war alli
+
+6. Esperar a que se haga un copia automaticamente
+
+5. En google buscar localhost:8080
+
+6. Te aparecera el Login
+6.1 Puedes hacer login con (admin-123) o (user-321)
+
+7. Te cargara la vista iniciar de los proyectos y podras realizae varias acciones estando alli.
+
+8. Gracias :)
